@@ -26,6 +26,14 @@ end
 
 while true do
     local monitor = peripheral.find("monitor")
+
+    if (not monitor) then
+        periphemu.create('right', 'monitor')
+        shell.run("peripherals")
+
+        monitor = peripheral.find("monitor")
+    end
+
     local chest = peripheral.find("chest")
 
     monitor.clear()
